@@ -1,4 +1,4 @@
-from django.shortcuts import render
+﻿from django.shortcuts import render
 from .models import Recurso
 
 # ════════════════════════════════════════════════════════════
@@ -7,7 +7,7 @@ from .models import Recurso
 nombre_docente   = "Prof. García"
 iniciales        = "PG"
 materia          = "Matemáticas"
-institucion      = "Colegio Simón Bolívar"
+institucion      = "Colegio Dolores Sucre"
 anos_experiencia = "10"
 num_estudiantes  = "320"
 num_materias     = "3"

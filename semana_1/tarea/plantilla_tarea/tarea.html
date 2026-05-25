@@ -503,6 +503,14 @@
 
     <!-- =========================================================
          RECURSOS — agrega tus 3 recursos favoritos
+         ← Django S4: en views.py → recursos = Recurso.objects.all()
+                      El admin Django te permite agregar/quitar recursos
+                      sin tocar el código. Las tarjetas se generan así:
+                      {% for recurso in recursos %}
+                        <a href="{{ recurso.url }}" class="tarjeta-recurso">
+                          {{ recurso.titulo }} — {{ recurso.descripcion }}
+                        </a>
+                      {% endfor %}
          ========================================================= -->
     <section class="seccion-contenido" id="recursos">
       <div class="contenedor-centrado">
@@ -533,6 +541,15 @@
 
     <!-- =========================================================
          CONTACTO — agrega tus datos reales
+         ← Django S5: en lugar de información estática, el visitante
+                      envía un formulario que Django valida y guarda:
+                      class ContactoForm(forms.Form): nombre, correo, mensaje
+                      <form method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">Enviar</button>
+                      </form>
+                      Los mensajes quedan en /admin/ → Mensajes para leer.
          ========================================================= -->
     <section class="seccion-contenido fondo-alterno" id="contacto">
       <div class="contenedor-centrado">

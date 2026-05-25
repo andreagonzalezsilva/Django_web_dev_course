@@ -641,6 +641,12 @@
 
     <!-- =========================================================
          RECURSOS — 1 tarjeta lista como modelo · agrega 2 más
+         ← Django S4: recursos = Recurso.objects.all() en views.py
+                      {% for recurso in recursos %}
+                        <a href="{{ recurso.url }}" class="tarjeta-recurso">
+                          <span>{{ recurso.titulo }}</span>
+                        </a>
+                      {% endfor %}
          ========================================================= -->
     <section class="seccion-contenido" id="recursos">
       <div class="contenedor-centrado">
@@ -677,6 +683,9 @@
     <!-- =========================================================
          ✅ CONTACTO — sección completa, úsala como referencia
          Observa cómo href="mailto:..." abre el cliente de correo.
+         ← Django S5: el visitante envía un formulario que se guarda en la BD.
+                      <form method="POST">{% csrf_token %}{{ form.as_p }}</form>
+                      class ContactoForm(forms.Form): nombre, correo, mensaje
          ========================================================= -->
     <section class="seccion-contenido fondo-alterno" id="contacto">
       <div class="contenedor-centrado">

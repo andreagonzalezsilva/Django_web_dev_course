@@ -3,7 +3,7 @@ from .models import Recurso
 
 nombre_docente   = "Prof. García"
 materia          = "Matemáticas"
-institucion      = "Colegio Simón Bolívar"
+institucion      = "Colegio Dolores Sucre"
 anos_experiencia = "10"
 frase_mision     = "Cada estudiante puede dominar las matemáticas con la guía correcta."
 

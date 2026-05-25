@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+﻿from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Recurso, Mensaje
 from .forms import ContactoForm
@@ -9,7 +9,7 @@ from .forms import ContactoForm
 nombre_docente   = "Prof. García"
 iniciales        = "PG"
 materia          = "Matemáticas"
-institucion      = "Colegio Simón Bolívar"
+institucion      = "Colegio Dolores Sucre"
 anos_experiencia = "10"
 num_estudiantes  = "320"
 num_materias     = "3"

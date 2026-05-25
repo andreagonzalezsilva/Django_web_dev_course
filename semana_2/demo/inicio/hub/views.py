@@ -3,7 +3,7 @@
 # Datos del docente — personaliza estas variables
 nombre_docente   = "Prof. García"
 materia          = "Matemáticas"
-institucion      = "Colegio Simón Bolívar"
+institucion      = "Colegio Dolores Sucre"
 anos_experiencia = "10"
 
 # AQUÍ CONSTRUIMOS EN CLASE:

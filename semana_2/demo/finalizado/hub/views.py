@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+﻿from django.http import HttpResponse
 
 # ════════════════════════════════════════════════════════════
 #  ZONA DE PERSONALIZACIÓN — edita solo esta sección
@@ -8,7 +8,7 @@ from django.http import HttpResponse
 nombre_docente   = "Prof. González"
 iniciales        = "PG"
 materia          = "Matemáticas"
-institucion      = "Colegio Simón "
+institucion      = "Colegio Dolores Sucre"
 anos_experiencia = "5"
 num_estudiantes  = "300+"
 num_materias     = "3"

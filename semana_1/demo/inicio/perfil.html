@@ -145,6 +145,7 @@
   <header class="barra-navegacion">
     <div class="contenedor-centrado">
       <span class="logo-nombre">Prof. García</span>
+      <!-- S2→S3: <span class="logo-nombre">{{ nombre_docente }}</span> -->
       <nav class="menu-principal">
         <a href="#acerca">Acerca de mí</a>
         <a href="#materias">Materias</a>
@@ -159,7 +160,9 @@
     <section class="seccion-hero" id="inicio">
       <div class="contenedor-centrado">
         <div class="perfil-avatar">PG</div>
+        <!-- S2→S3: <h1 class="perfil-nombre">{{ nombre_docente }}</h1> -->
         <h1 class="perfil-nombre">Prof. García</h1>
+        <!-- S2→S3: {{ materia }} · {{ institucion }} -->
         <p class="perfil-especialidad">Docente de Matemáticas · Colegio Simón Bolívar</p>
         <p class="perfil-lema">"Cada estudiante puede dominar las matemáticas con la guía correcta."</p>
         <div class="grupo-botones">
@@ -173,6 +176,7 @@
       <div class="contenedor-centrado">
         <div class="lista-estadisticas">
           <article class="tarjeta-estadistica">
+            <!-- S2→S3: <span class="estadistica-numero">{{ anos_experiencia }}</span> -->
             <span class="estadistica-numero">10</span>
             <span class="estadistica-etiqueta">Años de experiencia</span>
           </article>
@@ -202,6 +206,12 @@
       </div>
     </section>
 
+    <!-- S3: {% for materia in materias %}
+              <article class="tarjeta-materia">
+                <h3>{{ materia.nombre }}</h3>
+                <p>{{ materia.grado }}</p>
+              </article>
+         {% endfor %} -->
     <section class="seccion-contenido fondo-alterno" id="materias">
       <div class="contenedor-centrado">
         <h2 class="titulo-seccion">Mis Materias</h2>
@@ -226,6 +236,12 @@
       </div>
     </section>
 
+    <!-- S4: recursos = Recurso.objects.all() en views.py
+              {% for recurso in recursos %}
+                <a href="{{ recurso.url }}" class="tarjeta-recurso">
+                  <span>{{ recurso.titulo }}</span>
+                </a>
+              {% endfor %} -->
     <section class="seccion-contenido" id="recursos">
       <div class="contenedor-centrado">
         <h2 class="titulo-seccion">Recursos para Estudiantes</h2>
@@ -256,6 +272,12 @@
       </div>
     </section>
 
+    <!-- S5: <form method="POST" action="{% url 'contacto' %}">
+               {% csrf_token %}
+               {{ form.as_p }}
+               <button type="submit">Enviar</button>
+             </form>
+         El formulario guarda cada mensaje en la base de datos (modelo Mensaje). -->
     <section class="seccion-contenido fondo-alterno" id="contacto">
       <div class="contenedor-centrado">
         <h2 class="titulo-seccion">Contacto</h2>

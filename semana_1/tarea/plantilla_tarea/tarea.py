@@ -13,15 +13,16 @@
 class Docente:
     """Representa a un docente del hub personal."""
 
-    def __init__(self, nombre, materia, institucion, anos_experiencia):
+    def __init__(self, nombre, materia, institucion, anos_experiencia, materias=None):
         # ============================================================
         # TAREA 1 — Los atributos ya están; personaliza los valores
         # abajo cuando crees la instancia (al final del archivo).
         # ============================================================
-        self.nombre = nombre
-        self.materia = materia
-        self.institucion = institucion
+        self.nombre           = nombre
+        self.materia          = materia
+        self.institucion      = institucion
         self.anos_experiencia = anos_experiencia
+        self.materias         = materias or []  # lista de asignaturas
 
     def presentarse(self):
         print(f"Hola, soy {self.nombre}.")
@@ -30,12 +31,14 @@ class Docente:
 
     # ============================================================
     # TAREA 2 — Agrega el método describir_materias()
-    # El método debe recibir una lista de materias y mostrarlas.
+    # El método debe recorrer self.materias e imprimirlas numeradas.
+    # Anticipa exactamente lo que hace Django en S3:
+    #   {% for materia in materias %} … {% endfor %}
     #
     # Prompt Cursor (Ctrl+K):
-    #   "Agrega un método describir_materias(self, lista_materias)
-    #    que reciba una lista de strings e imprima cada materia
-    #    numerada. Ejemplo: '1. Álgebra — 8° grado'"
+    #   "Agrega un método describir_materias(self) que recorra
+    #    self.materias e imprima cada elemento numerado.
+    #    Ejemplo de salida: '1. Álgebra — 8° grado'"
     # ============================================================
 
     # ESCRIBE EL MÉTODO AQUÍ ↓
@@ -64,6 +67,9 @@ mi_docente = Docente(
     materia="",          # Tu materia principal
     institucion="",      # Tu institución
     anos_experiencia=0,  # Tus años de experiencia
+    materias=[           # Lista con tus asignaturas y el grado de cada una
+        "",              # Ej: "Física — 11° grado"
+    ],
 )
 
 mi_docente.presentarse()

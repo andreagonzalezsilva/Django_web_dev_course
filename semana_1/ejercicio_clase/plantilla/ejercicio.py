@@ -7,20 +7,22 @@
 
 
 # ── EJERCICIO 1: Completa las variables ─────────────────────
-nombre = ""          # Tu nombre. Ej: "Prof. Ramírez"
-materia = ""         # Tu materia. Ej: "Ciencias Naturales"
-institucion = ""     # Tu institución
-anos = 0             # Años de experiencia
+nombre      = ""    # Tu nombre. Ej: "Prof. Ramírez"
+materia     = ""    # Tu materia. Ej: "Ciencias Naturales"
+institucion = ""    # Tu institución
+anos        = 0     # Años de experiencia
+materias    = []    # Lista de asignaturas. Ej: ["Biología — 9° grado", "Química — 10°"]
 
 
 # ── La clase ya tiene __init__ — solo falta presentarse() ───
 class Docente:
 
-    def __init__(self, nombre, materia, institucion, anos_experiencia):
-        self.nombre = nombre
-        self.materia = materia
-        self.institucion = institucion
+    def __init__(self, nombre, materia, institucion, anos_experiencia, materias=None):
+        self.nombre           = nombre
+        self.materia          = materia
+        self.institucion      = institucion
         self.anos_experiencia = anos_experiencia
+        self.materias         = materias or []    # ← en S3: {% for m in materias %}
 
     # ============================================================
     # EJERCICIO 2 — Agrega el método presentarse()
@@ -44,17 +46,22 @@ mi_docente = Docente(
     materia=materia,
     institucion=institucion,
     anos_experiencia=anos,
+    materias=materias,
 )
 
 mi_docente.presentarse()
 
 
-# ── Puente hacia Django (Semana 2) ──────────────────────────────────────
-# AHORA (Python puro):                    PRÓXIMA SEMANA (Django):
+# ── Puente hacia Django (Semanas 2–5) ───────────────────────────────────
+# AHORA (Python puro):                    PRÓXIMA SEMANA Y SIGUIENTES:
 # ─────────────────────────────────────────────────────────────────────────
-# mi_docente = Docente("García", ...)  →  Docente.objects.get(id=1)
-# mi_docente.presentarse()             →  return render(request, 'perfil.html',
-#                                                 {'docente': mi_docente})
+# mi_docente = Docente("García", ...)  →  [S2] Django + URLs: /perfil/, /acerca/
+# mi_docente.presentarse()             →  [S2] return render(request, 'perfil.html',
+#                                                    {'docente': mi_docente})
+# self.materias = ["Álgebra", ...]     →  [S3] {% for materia in materias %}
+#                                                <article>{{ materia }}</article>
+#                                            {% endfor %}
+# class Docente:                       →  [S4] class Docente(models.Model):
+#     self.nombre = nombre             →           nombre = models.CharField(...)
 #
-# Django usará los mismos atributos (nombre, materia, institucion…)
-# para inyectarlos en el HTML: <h1>{{ docente.nombre }}</h1>
+# Django inyecta en el HTML: <h1>{{ docente.nombre }}</h1>

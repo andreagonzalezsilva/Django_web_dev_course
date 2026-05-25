@@ -489,6 +489,7 @@
        =========================================================== -->
   <header class="barra-navegacion">
     <div class="contenedor-centrado">
+      <!-- En Django: <span class="logo-nombre">{{ nombre_docente }}</span> -->
       <span class="logo-nombre">Prof. García</span>
 
       <!-- <nav> indica al navegador que este es un menú de navegación -->
@@ -634,6 +635,15 @@
          RECURSOS: <a> como tarjeta completa → toda la tarjeta es clickeable.
          target="_blank" abre en pestaña nueva.
          rel="noopener"  es una buena práctica de seguridad con _blank.
+
+         En Django (Semana 4): estos recursos vendrán de la base de datos.
+           views.py:    recursos = Recurso.objects.all()
+           contexto:    {'recursos': recursos}
+           plantilla:   {% for recurso in recursos %}
+                          <a href="{{ recurso.url }}" class="tarjeta-recurso">
+                            <span>{{ recurso.titulo }}</span>
+                          </a>
+                        {% endfor %}
          ========================================================= -->
     <section class="seccion-contenido" id="recursos">
       <div class="contenedor-centrado">
@@ -680,6 +690,12 @@
 
     <!-- =========================================================
          CONTACTO
+         Hoy: información estática (email, horario, ubicación).
+         En Django (Semana 5): el visitante envía mensajes directamente.
+           forms.py:    class ContactoForm(forms.Form): nombre, correo, mensaje
+           views.py:    if request.method == 'POST': form.is_valid() → Mensaje.objects.create(...)
+           plantilla:   <form method="POST">{% csrf_token %}{{ form.as_p }}</form>
+           admin:       Los mensajes se leen desde /admin/ → Mensajes
          ========================================================= -->
     <section class="seccion-contenido fondo-alterno" id="contacto">
       <div class="contenedor-centrado">
